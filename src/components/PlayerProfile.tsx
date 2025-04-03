@@ -215,6 +215,7 @@ const PlayerProfile: React.FC = () => {
             />
           </div>
           
+          {/*
           <div className="grid grid-cols-2 gap-3 text-xs bg-muted p-2 rounded-sm">
             <div className="flex flex-col">
               <span className="text-muted-foreground uppercase">Schedine giocate</span>
@@ -235,6 +236,7 @@ const PlayerProfile: React.FC = () => {
               </span>
             </div>
           </div>
+          */}
           
           {/* Eventi di vita */}
           {profile.lifeEvents && profile.lifeEvents.length > 0 && (
