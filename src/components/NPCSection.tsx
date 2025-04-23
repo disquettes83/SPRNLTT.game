@@ -71,7 +71,7 @@ const NPCSection: React.FC = () => {
           Oggi in ricevitoria hai incontrato questo personaggio discutibile:
         </p>
         
-        <Avatar className="h-32 w-32 rounded-none border-2 border-primary/20 mb-3 relative">
+        <Avatar className="h-64 w-64 rounded-none border-2 border-primary/20 mb-3 relative">
           <AvatarImage src={npc.avatar} alt={npc.name} />
           <AvatarFallback className="bg-primary/10 text-primary text-lg rounded-none">
             {npc.name.split(' ').map(n => n[0]).join('')}
@@ -92,7 +92,7 @@ const NPCSection: React.FC = () => {
         
         <div className="text-center mb-3">
           <h3 className="font-bold text-base">{npc.name}</h3>
-          <p className="text-xs text-muted-foreground">{npc.title}</p>
+          {/* <p className="text-xs text-muted-foreground">{npc.title}</p> */}
           
           {/* Compatibilità sociale */}
           {compatibility && (

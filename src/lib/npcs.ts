@@ -25,9 +25,9 @@ export interface NPC {
 const NPCs: NPC[] = [
   {
     id: 'cassiera-stanca',
-    name: 'Giulia',
+    name: 'Cassiera stanca',
     title: 'Cassiera stanca',
-    avatar: '/placeholder.svg',
+    avatar: '/images/cassiera-stanca.png',
     dialogue: {
       text: "Sì, buongiorno... *sospiro* Vuole giocare i soliti numeri o ha deciso di buttare i suoi soldi in modo diverso oggi?",
       options: [
@@ -53,7 +53,7 @@ const NPCs: NPC[] = [
     id: 'amico-derisore',
     name: 'Marco',
     title: 'Amico che ti deride',
-    avatar: '/placeholder.svg',
+    avatar: '/images/amico-che-ti-deride.png',
     dialogue: {
       text: "Ehi, guarda chi si vede! Ancora a giocare al lotto? *ride* Quanti milioni hai vinto questa settimana?",
       options: [
@@ -79,7 +79,7 @@ const NPCs: NPC[] = [
     id: 'don-gennaro',
     name: 'Don Gennaro',
     title: 'Il pensionato filosofo',
-    avatar: '/placeholder.svg',
+    avatar: '/images/don-gennaro.png',
     dialogue: {
       text: "Il 47 è venuto a trovarmi stanotte. Mi ha chiesto un caffè. Poi abbiamo discusso del senso della vita.",
       options: [
@@ -105,7 +105,7 @@ const NPCs: NPC[] = [
     id: 'uomo-giacca',
     name: "L'Uomo in Giacca",
     title: 'Il vincitore rovinato',
-    avatar: '/placeholder.svg',
+    avatar: '/images/uomo-in-giacca.png',
     dialogue: {
       text: "Ho fatto 6. Adesso vivo in un box auto con mia cugina. La fortuna è un'illusione con la cravatta.",
       options: [
@@ -157,7 +157,7 @@ const NPCs: NPC[] = [
     id: 'bambino-bendato',
     name: 'Il Bambino Bendato',
     title: 'Entità onirica',
-    avatar: '/placeholder.svg',
+    avatar: '/images/bambino-bendato.png',
     dialogue: {
       text: "Quaranta... e otto... morti che parlano. *fluttua leggermente* Tre galline, una luna, tuo zio con la valigia che corre.",
       options: [

@@ -167,7 +167,7 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
             <div>
               <DialogTitle>{npc.name}</DialogTitle>
               <DialogDescription className="flex flex-col">
-                <span>{npc.title}</span>
+                {/*<span>{npc.title}</span>*/}
                 {npc.socialStatus && (
                   <Badge variant="outline" className="mt-1 w-fit">
                     {npc.socialStatus}
