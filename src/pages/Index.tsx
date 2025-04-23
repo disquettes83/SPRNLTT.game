@@ -39,6 +39,11 @@ import {
   applyEventToProfile
 } from '@/lib/events';
 import { getRandomFunFact } from '@/lib/utils';
+import { 
+  calculateCombinations, 
+  generateAllCombinations, 
+  getCombinationsInfo 
+} from '@/lib/lotteryUtils';
 
 
 const Index = () => {
@@ -275,10 +280,12 @@ const Index = () => {
   };
   
   // Gestisce la giocata
-  const handlePlay = async (numbers: number[]) => {
+  const handlePlay = async (numbers: number[], combinations: number) => {
     // Verifica che il giocatore abbia abbastanza soldi
-    if (profile && profile.balance < TICKET_COST) {
-      toast.error("Non hai abbastanza soldi per giocare!");
+    const combinationsCost = getCombinationsInfo(numbers.length).cost;
+    
+    if (profile && profile.balance < combinationsCost) {
+      toast.error(`Non hai abbastanza soldi per giocare! Questa giocata costa ${combinationsCost.toFixed(2)}€`);
       return;
     }
     
@@ -296,11 +303,11 @@ const Index = () => {
     
     // Aggiorna il profilo del giocatore
     if (profile) {
-      playTicket(TICKET_COST);
+      playTicket(combinationsCost);
     }
     
     // Aggiorna le statistiche generali
-    setMoneySpent(prev => prev + TICKET_COST);
+    setMoneySpent(prev => prev + combinationsCost);
     setGamesPlayed(prev => prev + 1);
     
     // Simula l'attesa dell'estrazione
@@ -312,7 +319,7 @@ const Index = () => {
       setDrawnNumbers(drawn);
       
       // Usa i numeri estratti e simula i risultati senza modificare il jackpot
-      const winners = simulateWinners(); // Ora possiamo usare questa funzione
+      const winners = simulateWinners();
       
       // Calcola gli importi delle vincite per categoria
       const totalTickets = Math.round(AVERAGE_TICKETS_PER_DRAW * (0.85 + Math.random() * 0.3));
@@ -348,8 +355,23 @@ const Index = () => {
         }, 1000);
       }
       
-      // Calcola vincita
-      const win = calculateWinnings(numbers, drawn);
+      // Calcolo vincita adattato per gestire le combinazioni multiple
+      let win = 0;
+      
+      // Se abbiamo selezionato esattamente 6 numeri, usiamo la funzione esistente
+      if (numbers.length === 6) {
+        win = calculateWinnings(numbers, drawn);
+      } else {
+        // Altrimenti, generiamo tutte le combinazioni e calcoliamo le vincite
+        const allCombinations = generateAllCombinations(numbers, 6);
+        
+        // Per ogni combinazione, calcoliamo la vincita
+        allCombinations.forEach(combination => {
+          const combinationWin = calculateWinnings(combination, drawn);
+          win += combinationWin;
+        });
+      }
+      
       setWinAmount(win);
       
       if (win > 0) {

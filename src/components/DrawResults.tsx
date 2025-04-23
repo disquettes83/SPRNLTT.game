@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { confetti } from '@/lib/confetti';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Info, AlertTriangle } from 'lucide-react';
+import { ArrowRight, Info, AlertTriangle, ChevronUp, ChevronDown } from 'lucide-react';
 import { 
   Accordion, 
   AccordionContent, 
@@ -13,6 +13,27 @@ import { NationalResults, shouldUseUnluckyNumbers } from '@/lib/lottery';
 import { useTime } from '@/contexts/TimeContext';
 import { usePlayer } from '@/contexts/PlayerContext';
 
+// Funzione per generare tutte le combinazioni possibili di 6 numeri da un array di numeri più grande
+const generateCombinations = (numbers: number[], size: number = 6): number[][] => {
+  const result: number[][] = [];
+  
+  function backtrack(start: number, current: number[]) {
+    if (current.length === size) {
+      result.push([...current]);
+      return;
+    }
+    
+    for (let i = start; i < numbers.length; i++) {
+      current.push(numbers[i]);
+      backtrack(i + 1, current);
+      current.pop();
+    }
+  }
+  
+  backtrack(0, []);
+  return result;
+};
+
 interface DrawResultsProps {
   playerNumbers: number[];
   drawnNumbers: number[] | null;
@@ -20,6 +41,7 @@ interface DrawResultsProps {
   onNewGame: () => void;
   nationalResults: NationalResults | null;
   jackpot: number;
+  combinations?: number; // Numero di combinazioni sviluppate
 }
 
 const DrawResults: React.FC<DrawResultsProps> = ({
@@ -28,14 +50,28 @@ const DrawResults: React.FC<DrawResultsProps> = ({
   winAmount,
   onNewGame,
   nationalResults,
-  jackpot
+  jackpot,
+  combinations = 1
 }) => {
   const [animationComplete, setAnimationComplete] = useState(false);
+  const [showCombinations, setShowCombinations] = useState(false);
   const { advanceTime } = useTime();
   const { profile } = usePlayer();
   
   // Verifica se sta usando numeri sfigati
   const forceUnluckyNumbers = profile ? shouldUseUnluckyNumbers(profile) : false;
+  
+  // Genera tutte le possibili combinazioni dei numeri giocati
+  const allCombinations = playerNumbers.length > 6 
+    ? generateCombinations(playerNumbers) 
+    : [playerNumbers];
+  
+  // Identifica le combinazioni vincenti
+  const winningCombinations = allCombinations.filter(combo => {
+    if (!drawnNumbers) return false;
+    const matchCount = combo.filter(num => drawnNumbers.includes(num)).length;
+    return matchCount >= 2; // Consideriamo vincenti le combinazioni con almeno 2 numeri
+  });
   
   useEffect(() => {
     // Attiva confetti solo se ha vinto e non aveva karma zero
@@ -76,23 +112,12 @@ const DrawResults: React.FC<DrawResultsProps> = ({
     return amount.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
   };
   
-  if (matchCount === 6) {
-    resultMessage = `JACKPOT! Hai fatto 6!`;
-    resultClass = 'text-4xl text-accent animate-pulse font-extrabold';
-  } else if (matchCount === 5) {
-    resultMessage = `Incredibile! Hai fatto 5!`;
-    resultClass = 'text-3xl text-accent font-bold';
-  } else if (matchCount === 4) {
-    resultMessage = `Ottimo! Hai fatto 4!`;
-    resultClass = 'text-2xl text-secondary font-bold';
-  } else if (matchCount === 3) {
-    resultMessage = `Bene! Hai fatto 3!`;
-    resultClass = 'text-xl text-secondary font-semibold';
-  } else if (matchCount === 2) {
-    resultMessage = `Complimenti! Hai fatto 2!`;
-    resultClass = 'text-lg text-secondary font-medium';
+  if (winningCombinations.length > 0) {
+    // Se ci sono combinazioni vincenti, mostriamo un messaggio diverso
+    resultMessage = `Hai ${winningCombinations.length === 1 ? 'una combinazione vincente' : `${winningCombinations.length} combinazioni vincenti`}!`;
+    resultClass = 'text-2xl text-accent font-bold';
   } else {
-    resultMessage = 'Nessuna vincita. Ritenta!';
+    resultMessage = 'Nessuna combinazione vincente. Ritenta!';
     resultClass = 'text-lg font-medium text-muted-foreground';
   }
   
@@ -106,7 +131,7 @@ const DrawResults: React.FC<DrawResultsProps> = ({
       <h2 className="text-xl font-bold mb-4 border-b-2 border-border pb-2">Risultati dell'estrazione</h2>
       
       {/* Messaggio per numeri sfigati */}
-      {forceUnluckyNumbers && matchCount < 2 && (
+      {forceUnluckyNumbers && winningCombinations.length === 0 && (
         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-sm text-red-600 text-sm">
           <div className="font-bold mb-1 flex items-center">
             <AlertTriangle className="h-4 w-4 mr-1" />
@@ -117,7 +142,7 @@ const DrawResults: React.FC<DrawResultsProps> = ({
       )}
       
       {/* Messaggio sorprendente se ha vinto nonostante i numeri sfigati */}
-      {forceUnluckyNumbers && matchCount >= 2 && (
+      {forceUnluckyNumbers && winningCombinations.length > 0 && (
         <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-sm text-amber-600 text-sm">
           <div className="font-bold mb-1 flex items-center">
             <AlertTriangle className="h-4 w-4 mr-1" />
@@ -142,7 +167,17 @@ const DrawResults: React.FC<DrawResultsProps> = ({
       </div>
       
       <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-2">I tuoi numeri:</h3>
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-semibold">I tuoi numeri:</h3>
+          
+          {/* Mostra numero di combinazioni se maggiore di 1 */}
+          {playerNumbers.length > 6 && (
+            <div className="text-sm bg-primary/10 px-3 py-1 rounded-full">
+              {combinations} combinazioni
+            </div>
+          )}
+        </div>
+        
         <div className="grid grid-cols-6 gap-2">
           {sortedPlayerNumbers.map((num, idx) => (
             <div
@@ -163,11 +198,70 @@ const DrawResults: React.FC<DrawResultsProps> = ({
         {resultMessage}
       </div>
       
-      {matchCount > 1 && (
+      {winningCombinations.length > 0 && (
         <div className="bg-accent/20 p-4 rounded-sm border-2 border-accent text-center mb-6 animate-pulse">
           <p className="font-bold text-lg mb-1">Hai vinto:</p>
           <p className="text-3xl font-extrabold">{formatCurrency(winAmount)}</p>
-          {matchCount === 6 && <div className="stamp mt-2">APPROVATO</div>}
+          {winningCombinations.some(combo => combo.filter(num => sortedDrawnNumbers.includes(num)).length === 6) && (
+            <div className="stamp mt-2">APPROVATO</div>
+          )}
+        </div>
+      )}
+      
+      {/* Visualizzazione delle combinazioni vincenti */}
+      {playerNumbers.length > 6 && (
+        <div className="mb-6">
+          <Button 
+            variant="outline" 
+            onClick={() => setShowCombinations(!showCombinations)}
+            className="w-full flex items-center justify-between"
+          >
+            <span>
+              {showCombinations ? "Nascondi combinazioni" : "Visualizza combinazioni"} 
+              ({winningCombinations.length} vincenti su {allCombinations.length})
+            </span>
+            {showCombinations ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          </Button>
+          
+          {showCombinations && (
+            <div className="mt-4 p-3 border rounded-sm max-h-60 overflow-y-auto">
+              <div className="grid grid-cols-2 gap-3">
+                {winningCombinations.map((combo, idx) => {
+                  const matchCount = combo.filter(num => sortedDrawnNumbers.includes(num)).length;
+                  return (
+                    <div 
+                      key={idx} 
+                      className={cn(
+                        "p-2 border rounded-sm text-center",
+                        matchCount >= 6 ? "bg-green-100 border-green-300" :
+                        matchCount >= 5 ? "bg-blue-100 border-blue-300" :
+                        matchCount >= 4 ? "bg-indigo-100 border-indigo-300" :
+                        matchCount >= 3 ? "bg-purple-100 border-purple-300" :
+                        "bg-gray-100 border-gray-300"
+                      )}
+                    >
+                      <div className="flex flex-wrap justify-center gap-1 mb-1">
+                        {combo.map(num => (
+                          <span 
+                            key={num}
+                            className={cn(
+                              "inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center",
+                              sortedDrawnNumbers.includes(num) 
+                                ? "bg-green-500 text-white" 
+                                : "bg-gray-200"
+                            )}
+                          >
+                            {num}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="text-xs font-medium">{matchCount} numeri</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
       
