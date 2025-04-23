@@ -451,9 +451,6 @@ const advanceTime = (days: number = 1) => {
     // Questa è la parte cruciale: ora controlliamo se il giorno PRECEDENTE era un giorno di estrazione
     if (isDrawDayToday) {
       const previousDate = addDays(newDate, -1); // Data del giorno precedente (giorno dell'estrazione)
-      toast.info(`Estrazione del SuperEnaLosso di ieri!`, {
-        description: `${format(previousDate, 'EEEE d MMMM yyyy')}`
-      });
       
       // Simula l'estrazione nazionale
       // Nota: simulateNationalDraw richiama simulateNationalResults che aggiorna il jackpot

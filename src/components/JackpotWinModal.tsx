@@ -344,7 +344,7 @@ const JackpotWinModal: React.FC<JackpotWinModalProps> = ({
               </div>
               
               <h2 className="text-3xl font-black text-center uppercase tracking-tight leading-tight mb-2">
-                {sensationalPhrase}! {winners === 1 ? "VINTI" : "DIVISI"} {formatCurrency(winners === 1 ? amount : amount * winners)} AL SUPERENALOSSO
+                {sensationalPhrase}! {winners === 1 ? "VINTI" : "DIVISI"} {formatCurrency(winners === 1 ? amount : amount * winners)} AL SPRNLTT
               </h2>
               
               <h3 className="text-xl font-bold text-center mb-3">
