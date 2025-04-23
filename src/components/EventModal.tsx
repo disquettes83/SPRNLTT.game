@@ -83,9 +83,9 @@ const EventModal: React.FC<EventModalProps> = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             {event.specialType === 'dream' && <Moon className="h-5 w-5 text-indigo-500" />}
-            {event.type === 'economic' && <BadgeEuro className="h-5 w-5 text-amber-500" />}
-            {event.type === 'health' && <HeartCrack className="h-5 w-5 text-red-500" />}
-            {event.type === 'social' && <Heart className="h-5 w-5 text-pink-500" />}
+            {event.specialType === 'economic' && <BadgeEuro className="h-5 w-5 text-amber-500" />}
+            {event.specialType === 'health' && <HeartCrack className="h-5 w-5 text-red-500" />}
+            {event.specialType === 'social' && <Heart className="h-5 w-5 text-pink-500" />}
             {event.title}
           </DialogTitle>
           <DialogDescription>
