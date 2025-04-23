@@ -166,10 +166,15 @@ const Index = () => {
   
   // Handle event modal close
   const handleEventModalClose = () => {
+    if (profile) {
+      console.log('Chiusura modale evento in Index.tsx');
+    }
+    
     setShowEventModal(false);
     
-    // Apply effects after modal is closed
+    // Applica gli effetti qui
     if (currentEvent && profile) {
+      // Applica karma e effetti monetari
       if (eventKarmaEffect !== undefined) {
         modifyKarma(eventKarmaEffect);
       }
@@ -178,11 +183,19 @@ const Index = () => {
         modifyBalance(eventMoneyEffect);
       }
       
-      // Altri effetti verranno gestiti tramite l'aggiornamento del profilo nella funzione applyEventToProfile
-      // ma l'abbiamo già fatto quando abbiamo generato l'evento
+      // Per altri effetti complessi, stesso approccio di TimeContext.tsx
+      let eventWithoutKarmaAndMoney = { ...currentEvent };
+      delete eventWithoutKarmaAndMoney.karmaEffect;
+      delete eventWithoutKarmaAndMoney.moneyEffect;
+      
+      if (eventHealthEffect || eventDebtEffect || eventAddictionEffect || 
+          eventSocialEffect || (eventLifeEvents && eventLifeEvents.length > 0)) {
+        const { updatedProfile } = applyEventToProfile(profile, eventWithoutKarmaAndMoney);
+        setProfile(updatedProfile);
+      }
     }
     
-    // Reset event state
+    // Reset dell'evento
     setCurrentEvent(null);
     setEventKarmaEffect(undefined);
     setEventMoneyEffect(undefined);

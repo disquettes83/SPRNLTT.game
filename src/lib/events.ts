@@ -1,5 +1,10 @@
 import { PlayerProfile, SocialStatus, MaritalStatus, Employment, Debt, Addiction } from './player';
 
+// Helper per creare eventi tipizzati correttamente
+function createGameEvent<T extends Partial<GameEvent>>(event: T): GameEvent {
+  return event as unknown as GameEvent;
+}
+
 // Definizione del tipo di evento espanso
 export interface GameEvent {
   id: string;
@@ -1283,7 +1288,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
       ...specialEvents.filter(e => e.id === 'gambling_support_group'),
       ...negativeEvents.filter(e => e.id === 'worsening_addiction'),
       ...dreamEvents.filter(e => e.id === 'dream_addiction'),
-      {
+      createGameEvent({
         id: 'intervention',
         title: 'Intervento familiare',
         description: 'La tua famiglia ha organizzato un intervento per la tua dipendenza dal gioco. Sono preoccupati per te.',
@@ -1295,9 +1300,10 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
           severityChange: 2
         },
         lifeEvents: ['Intervento familiare per la dipendenza dal gioco']
-      }
+      })
     ];
-		// Filtriamo quelli disponibili secondo le condizioni
+
+    // Filtriamo quelli disponibili secondo le condizioni
     const availableEvents = gamblingEvents.filter(e => !e.condition || e.condition(profile));
     
     if (availableEvents.length > 0) {
@@ -1313,7 +1319,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
       ...specialEvents.filter(e => e.id === 'loan_shark'),
       ...negativeEvents.filter(e => e.id === 'increased_debt' || e.id === 'crushing_debt'),
       ...dreamEvents.filter(e => e.id === 'dream_financial_ruin'),
-      {
+      createGameEvent({
         id: 'debt_restructuring',
         title: 'Ristrutturazione del debito',
         description: 'La banca ti ha offerto un piano di ristrutturazione del debito. Non è ideale, ma è meglio di niente.',
@@ -1324,7 +1330,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
           amount: 'medio'
         },
         lifeEvents: ['Ristrutturazione del debito con la banca']
-      }
+      })
     ];
 
     // Filtriamo quelli disponibili secondo le condizioni
@@ -1342,7 +1348,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
       ...positiveEvents.filter(e => e.id === 'health_improvement'),
       ...negativeEvents.filter(e => e.id === 'health_deterioration'),
       ...dreamEvents.filter(e => e.id === 'dream_health_warning'),
-      {
+      createGameEvent({
         id: 'new_treatment',
         title: 'Nuova terapia',
         description: 'Il medico ti ha proposto una nuova terapia per il tuo problema di salute. Costa di più, ma potrebbe essere più efficace.',
@@ -1353,7 +1359,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
           type: 'improve'
         },
         lifeEvents: ['Iniziato una nuova terapia medica']
-      }
+      })
     ];
 
     // Filtriamo quelli disponibili secondo le condizioni
@@ -1369,15 +1375,15 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
   if (profile.employment === 'disoccupato' && Math.random() < 0.4) {
     const jobEvents = [
       ...positiveEvents.filter(e => e.id === 'new_job'),
-      {
+      createGameEvent({
         id: 'job_interview',
         title: 'Colloquio di lavoro',
         description: 'Hai finalmente ottenuto un colloquio di lavoro dopo mesi di ricerca. Speri che vada bene.',
         probability: 10,
         specialType: 'economic',
         lifeEvents: ['Partecipato a un colloquio di lavoro']
-      },
-      {
+      }),
+      createGameEvent({
         id: 'unemployment_benefits',
         title: 'Sussidio di disoccupazione',
         description: 'Hai ottenuto un sussidio di disoccupazione. Non è molto, ma ti aiuterà a sopravvivere per un po\'.',
@@ -1385,7 +1391,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
         specialType: 'economic',
         moneyEffect: 120,
         lifeEvents: ['Ottenuto sussidio di disoccupazione']
-      }
+      })
     ];
 
     // Filtriamo quelli disponibili secondo le condizioni
@@ -1399,7 +1405,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
   
   // Giocatore con molte giocate e poche vincite
   if (profile.playedTickets > 20 && profile.moneyWon < profile.moneySpent * 0.2 && Math.random() < 0.3) {
-    return {
+    return createGameEvent({
       id: 'gambling_reflection',
       title: 'Momento di riflessione',
       description: 'Guardando quanto hai speso in biglietti della lotteria rispetto a quanto hai vinto, ti chiedi se ne valga davvero la pena.',
@@ -1407,7 +1413,7 @@ export function generateTargetedEvent(profile: PlayerProfile): GameEvent | null 
       specialType: 'regular',
       karmaEffect: 1,
       lifeEvents: ['Momento di riflessione sulle abitudini di gioco']
-    };
+    });
   }
   
   // Se non abbiamo generato eventi mirati, torniamo null e si userà getRandomEvent

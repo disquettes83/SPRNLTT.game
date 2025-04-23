@@ -182,10 +182,32 @@ const simulateNationalDraw = (): { drawn: number[], results: NationalResults } =
   const handleEventModalClose = () => {
     setShowEventModal(false);
     
-    // Apply effects after modal is closed
+    // APPLICA GLI EFFETTI QUI, dopo la chiusura del modale
     if (currentEvent && profile) {
-      // Effects are now applied directly when the event is generated 
-      // through applyEventToProfile in the handleRandomEvent function
+      console.log('Applicazione effetti dopo chiusura modale');
+      
+      // Applica gli effetti monetari e karma mediante le funzioni esistenti
+      if (eventKarmaEffect !== undefined) {
+        modifyKarma(eventKarmaEffect);
+      }
+      
+      if (eventMoneyEffect !== undefined) {
+        modifyBalance(eventMoneyEffect);
+      }
+      
+      // Per gli altri effetti più complessi, dobbiamo chiamare applyEventToProfile
+      // ma prima rimuoviamo karma e money per evitare doppia applicazione
+      let eventWithoutKarmaAndMoney = { ...currentEvent };
+      delete eventWithoutKarmaAndMoney.karmaEffect;
+      delete eventWithoutKarmaAndMoney.moneyEffect;
+      
+      // Verifica se ci sono altri effetti da applicare
+      if (eventHealthEffect || eventDebtEffect || eventAddictionEffect || 
+          eventSocialEffect || (eventLifeEvents && eventLifeEvents.length > 0)) {
+        // Applica gli effetti rimanenti
+        const { updatedProfile } = applyEventToProfile(profile, eventWithoutKarmaAndMoney);
+        setProfile(updatedProfile);
+      }
     }
     
     // Reset event state
@@ -241,23 +263,36 @@ const simulateNationalDraw = (): { drawn: number[], results: NationalResults } =
       }
       
       if (event) {
-        // Apply the event to the profile and capture all effects
-        const { updatedProfile, appliedEffects } = applyEventToProfile(profile, event);
-        
-        // Update the profile
-        setProfile(updatedProfile);
-        
-        // Store event and effects in state for the modal
+        // CAMBIAMENTO CRITICO: NON chiamare applyEventToProfile qui!
+        // Invece, calcoliamo solo quali sarebbero gli effetti
+  
+        // Memorizza evento e effetti potenziali
         setCurrentEvent(event);
-        setEventKarmaEffect(appliedEffects.karmaEffect);
-        setEventMoneyEffect(appliedEffects.moneyEffect);
-        setEventHealthEffect(appliedEffects.healthEffect);
-        setEventDebtEffect(appliedEffects.debtEffect);
-        setEventAddictionEffect(appliedEffects.addictionEffect);
-        setEventSocialEffect(appliedEffects.socialEffect);
-        setEventLifeEvents(appliedEffects.lifeEvents);
+        setEventKarmaEffect(event.karmaEffect);
+        setEventMoneyEffect(event.moneyEffect);
         
-        // Show modal
+        // Per gli altri effetti più complessi, dobbiamo determinare manualmente
+        // se sarebbero stati applicati
+        setEventHealthEffect(event.healthEffect ? true : undefined);
+        setEventDebtEffect(event.debtEffect ? 
+            (event.debtEffect.type === 'increase' ? `Aumentato a ${event.debtEffect.amount}` : 
+             event.debtEffect.type === 'decrease' ? `Ridotto a ${event.debtEffect.amount}` : undefined) 
+            : undefined);
+        setEventAddictionEffect(event.addictionEffect ?
+            (event.addictionEffect.type === 'new' || event.addictionEffect.type === 'worsen' ? 
+             event.addictionEffect.severityChange : 
+             event.addictionEffect.type === 'improve' ? 
+             -(event.addictionEffect.severityChange || 1) : undefined)
+            : undefined);
+        setEventSocialEffect(event.socialStatusEffect ?
+            (event.socialStatusEffect.type === 'improve' ? 
+             `Miglioramento a ${event.socialStatusEffect.newStatus || 'stato superiore'}` :
+             event.socialStatusEffect.type === 'worsen' ?
+             `Declassamento a ${event.socialStatusEffect.newStatus || 'stato inferiore'}` : undefined)
+            : undefined);
+        setEventLifeEvents(event.lifeEvents);
+        
+        // Mostra il modale
         setShowEventModal(true);
       }
     }
@@ -267,6 +302,17 @@ const simulateNationalDraw = (): { drawn: number[], results: NationalResults } =
       const dreamEvent = getRandomDreamEvent(profile);
       if (dreamEvent) {
         setCurrentEvent(dreamEvent);
+        
+        // Per i sogni, di solito non ci sono effetti da applicare immediatamente
+        // ma potremmo avere dei numeri suggeriti
+        setEventKarmaEffect(dreamEvent.karmaEffect);
+        setEventMoneyEffect(dreamEvent.moneyEffect);
+        setEventHealthEffect(undefined);
+        setEventDebtEffect(undefined);
+        setEventAddictionEffect(undefined);
+        setEventSocialEffect(undefined);
+        setEventLifeEvents(dreamEvent.lifeEvents);
+        
         setShowEventModal(true);
       }
     }
