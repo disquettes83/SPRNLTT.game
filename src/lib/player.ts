@@ -34,29 +34,53 @@ export interface PlayerProfile {
 
 // Nomi e cognomi casuali
 export const firstNames = [
-  'Marco', 'Giuseppe', 'Antonio', 'Giovanni', 'Francesco', 
-  'Maria', 'Anna', 'Lucia', 'Giovanna', 'Rosa',
-  'Alessandro', 'Luigi', 'Salvatore', 'Roberto', 'Paolo',
-  'Andrea', 'Stefano', 'Pietro', 'Vincenzo', 'Carlo',
-  'Sofia', 'Giulia', 'Chiara', 'Francesca', 'Laura',
-  'Martina', 'Sara', 'Valentina', 'Elena', 'Caterina',
-  'Luca', 'Matteo', 'Davide', 'Massimo', 'Daniele',
-  'Federica', 'Paola', 'Roberta', 'Angela', 'Silvia',
-  'Claudio', 'Fabio', 'Lorenzo', 'Gabriele', 'Domenico',
-  'Elisa', 'Alessia', 'Monica', 'Simona', 'Antonella'
+  'Marco', 'Giuseppe', 'Antonio', 'Giovanni', 'Francesco',
+'Maria', 'Anna', 'Lucia', 'Giovanna', 'Rosa',
+'Alessandro', 'Luigi', 'Salvatore', 'Roberto', 'Paolo',
+'Andrea', 'Stefano', 'Pietro', 'Vincenzo', 'Carlo',
+'Sofia', 'Giulia', 'Chiara', 'Francesca', 'Laura',
+'Martina', 'Sara', 'Valentina', 'Elena', 'Caterina',
+'Luca', 'Matteo', 'Davide', 'Massimo', 'Daniele',
+'Federica', 'Paola', 'Roberta', 'Angela', 'Silvia',
+'Claudio', 'Fabio', 'Lorenzo', 'Gabriele', 'Domenico',
+'Elisa', 'Alessia', 'Monica', 'Simona', 'Antonella',
+'Raffaele', 'Pasquale', 'Ciro', 'Carmine', 'Gaetano',
+'Michele', 'Aniello', 'Gennaro', 'Cosimo', 'Fortunato',
+'Cataldo', 'Vito', 'Nicola', 'Rocco', 'Biagio',
+'Emanuele', 'Donato', 'Rosario', 'Tommaso', 'Achille',
+'Concetta', 'Filomena', 'Carmela', 'Assunta', 'Immacolata',
+'Nunzia', 'Rosaria', 'Graziella', 'Addolorata', 'Margherita',
+'Teresa', 'Alfonsina', 'Loredana', 'Letizia', 'Vincenza',
+'Giovannina', 'Agata', 'Mirella', 'Saveria', 'Giuliana',
+'Zosimo', 'Epifanio', 'Onofrio', 'Alfiero', 'Calogero',
+'Tancredi', 'Tito', 'Sebastiano', 'Leonzio', 'Zaccaria',
+'Filiberto', 'Baldassarre', 'Amilcare', 'Ermenegildo', 'Teodoro',
+'Benedetta', 'Eufemia', 'Serafina', 'Clelia', 'Bibiana',
+'Aurora', 'Adalgisa', 'Gelsomina', 'Letizia', 'Ortensia',
+'Palmira', 'Celestina', 'Pasqualina', 'Speranza', 'Clementina'
+
 ];
 
 export const lastNames = [
   'Rossi', 'Bianchi', 'Esposito', 'Romano', 'Colombo',
-  'Ricci', 'Marino', 'Greco', 'Bruno', 'Gallo', 'Ferrari',
-  'Russo', 'Conti', 'Costa', 'Fontana', 'Rizzo', 'Moretti',
-  'Barbieri', 'Lombardi', 'Santoro', 'Mariani', 'Rinaldi',
-  'Caruso', 'Ferrara', 'Leone', 'Marchetti', 'Martini',
-  'Vitale', 'De Luca', 'Ferri', 'Parisi', 'Benedetti',
-  'Bellini', 'Barone', 'Monti', 'Gatti', 'Pellegrini',
-  'Rossetti', 'Palumbo', 'Cattaneo', 'Bernardi', 'Mancini',
-  'Valentini', 'Messina', 'Fabbri', 'Martino', 'Serra',
-  'Coppola', 'De Santis', 'D\'Angelo', 'Rizzi', 'Villa'
+'Ricci', 'Marino', 'Greco', 'Bruno', 'Gallo', 'Ferrari',
+'Russo', 'Conti', 'Costa', 'Fontana', 'Rizzo', 'Moretti',
+'Barbieri', 'Lombardi', 'Santoro', 'Mariani', 'Rinaldi',
+'Caruso', 'Ferrara', 'Leone', 'Marchetti', 'Martini',
+'Vitale', 'De Luca', 'Ferri', 'Parisi', 'Benedetti',
+'Bellini', 'Barone', 'Monti', 'Gatti', 'Pellegrini',
+'Rossetti', 'Palumbo', 'Cattaneo', 'Bernardi', 'Mancini',
+'Valentini', 'Messina', 'Fabbri', 'Martino', 'Serra',
+'Coppola', 'De Santis', 'D\'Angelo', 'Rizzi', 'Villa',
+'Amato', 'Puglisi', 'Lombardo', 'Grasso', 'Fichera',
+'Alfano', 'Piazza', 'Mancuso', 'Siciliano', 'Paternò',
+'Lo Russo', 'Di Mauro', 'Criscuolo', 'Giordano', 'Napolitano',
+'Panebianco', 'Morabito', 'Crispino', 'Sabbatino', 'Zito',
+'Terranova', 'Pagano', 'Sapienza', 'Modica', 'Ciaramella',
+'Pisani', 'Licata', 'Graziano', 'Sorrentino', 'Gulotta',
+'Trapani', 'Cefalù', 'Caracciolo', 'Cutrò', 'Ragusa',
+'Altavilla', 'Campanella', 'Melfi', 'Monteleone', 'Palmeri',
+'De Laurentiis', 'Fiore', 'Galasso', 'Tropea', 'Di Benedetto'
 ];
 
 // Città italiane

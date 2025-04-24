@@ -355,7 +355,7 @@ const NPCs: NPC[] = [
     id: 'signora-gatti',
     name: 'Signora Gattoni',
     title: 'Gattara superstiziosa',
-    avatar: '/placeholder.svg',
+    avatar: '/images/signora-gattoni.png',
     dialogue: {
       text: "*vestita con dodici amuleti* I miei gatti hanno predetto l'estrazione di stasera. *ti mostra una foto con 17 gatti* Vedi come sono disposti? È un segno!",
       options: [
