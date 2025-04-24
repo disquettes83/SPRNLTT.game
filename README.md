@@ -15,6 +15,7 @@ SPRNLTT ricrea l'esperienza di rovinare sistematicamente la propria vita insegue
 - **Eventi casuali**: Perché la realtà è sempre peggio di quanto immaginavi
 - **Profilo evolutivo**: Segui il tuo lento ma inesorabile declino sociale ed economico
 - **Combinazioni multiple**: Perdi più soldi, più velocemente! Fino a 19 numeri per bruciare il tuo patrimonio in un colpo solo
+- **Bugs**: Perché anche il software vuole rovinarti la giornata
 
 ## Meccaniche di gioco
 
