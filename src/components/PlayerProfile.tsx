@@ -209,7 +209,7 @@ const PlayerProfile: React.FC = () => {
               <span className="text-sm font-medium uppercase">Karma</span>
               <span className="font-bold font-mono">{profile.karma}/10</span>
             </div>
-            <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-red-200 rounded-full overflow-hidden">
               <div 
                 className={cn("h-full", getKarmaColor())}
                 style={{ width: `${profile.karma * 10}%` }}
