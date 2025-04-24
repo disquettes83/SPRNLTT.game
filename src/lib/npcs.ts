@@ -218,7 +218,7 @@ const NPCs: NPC[] = [
     id: 'matematico-fallito',
     name: 'Il Professore',
     title: 'Matematico fallito',
-    avatar: '/placeholder.svg',
+    avatar: '/images/il-professore.png',
     dialogue: {
       text: "*scribacchia formule su un tovagliolo* Ho sviluppato un algoritmo perfetto. *sussurra* La probabilità è solo un'opinione. I numeri mi parlano.",
       options: [
@@ -296,7 +296,7 @@ const NPCs: NPC[] = [
     id: 'notaio-ansioso',
     name: 'Dr. Anselmi',
     title: 'Notaio con tic nervoso',
-    avatar: '/placeholder.svg',
+    avatar: '/images/dr-anselmi.png',
     dialogue: {
       text: "*controlla nervosamente l'orologio* Ho quattro minuti e trentasette secondi prima di tornare in studio. *tamburella le dita* Devo giocare questi numeri o perdo l'occasione della vita.",
       options: [
@@ -327,7 +327,7 @@ const NPCs: NPC[] = [
     id: 'influencer-fallita',
     name: 'Vanessa',
     title: 'Ex-influencer disperata',
-    avatar: '/placeholder.svg',
+    avatar: '/images/vanessa.png',
     dialogue: {
       text: "*parla al telefono* No, credimi, questa volta ho la combinazione giusta! Devo solo convincere qualcuno a prestarmi venti euro... *ti nota* Ehi, ciao! *chiude la chiamata* Ti stavo proprio cercando!",
       options: [
