@@ -87,10 +87,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profile, className, onClick }
     <Card className={cn("cursor-pointer hover:shadow-lg transition-all duration-300", className)} onClick={onClick}>
       <CardHeader className="pb-2">
         <CardTitle>{profile.name}</CardTitle>
-        <CardDescription className="flex items-center gap-2">
-          {profile.age} anni, {profile.city} 
-          <Badge variant="outline" size="sm">{profile.region}</Badge>
-        </CardDescription>
+          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+            {profile.age} anni, {profile.city} 
+            <Badge variant="outline">{profile.region}</Badge>
+          </div>
       </CardHeader>
       <CardContent className="space-y-2 text-sm">
         <div className="bg-muted p-2 rounded-sm mb-3">

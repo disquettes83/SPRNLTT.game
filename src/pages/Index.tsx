@@ -304,7 +304,7 @@ const Index = () => {
     
     // Verifica che sia un giorno di estrazione
     if (!isDrawDay) {
-      toast.error("Oggi non c'è estrazione! Gioca un altro giorno.");
+      toast.error("Oggi non c'è estrazione! Torna in ricevitoria domani.");
       return;
     }
     

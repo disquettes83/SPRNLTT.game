@@ -110,7 +110,7 @@ const PlayerProfile: React.FC = () => {
             <div className="flex items-center gap-2 border-b border-dashed border-border pb-1">
               <Home className="h-4 w-4 text-muted-foreground" />
               <span className="font-mono">{profile.city}</span>
-              {profile.region && <Badge variant="outline" size="sm" className="ml-1">{profile.region}</Badge>}
+              {profile.region && <Badge variant="outline" className="ml-1">{profile.region}</Badge>}
             </div>
             <div className="flex items-center gap-2 border-b border-dashed border-border pb-1">
               <Heart className="h-4 w-4 text-muted-foreground" />
@@ -209,10 +209,12 @@ const PlayerProfile: React.FC = () => {
               <span className="text-sm font-medium uppercase">Karma</span>
               <span className="font-bold font-mono">{profile.karma}/10</span>
             </div>
-            <Progress 
-              value={profile.karma * 10} 
-              className={cn("h-2", getKarmaColor())}
-            />
+            <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                className={cn("h-full", getKarmaColor())}
+                style={{ width: `${profile.karma * 10}%` }}
+              ></div>
+            </div>
           </div>
           
           {/*
