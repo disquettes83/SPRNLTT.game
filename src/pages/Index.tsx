@@ -408,37 +408,6 @@ const Index = () => {
         toast.error('Nessuna vincita. Ritenta!');
       }
       
-      // Possiamo avere un evento casuale durante l'estrazione
-      if (profile && shouldEventOccur()) {
-        // Try to get a targeted event first
-        let event = generateTargetedEvent(profile);
-        
-        // If no targeted event, get a random one
-        if (!event) {
-          event = getRandomEvent(profile);
-        }
-        
-        if (event) {
-          // Apply the event to the profile and capture all effects
-          const { updatedProfile, appliedEffects } = applyEventToProfile(profile, event);
-          
-          // Update the profile
-          setProfile(updatedProfile);
-          
-          // Store event and effects in state
-          setCurrentEvent(event);
-          setEventKarmaEffect(appliedEffects.karmaEffect);
-          setEventMoneyEffect(appliedEffects.moneyEffect);
-          setEventHealthEffect(appliedEffects.healthEffect);
-          setEventDebtEffect(appliedEffects.debtEffect);
-          setEventAddictionEffect(appliedEffects.addictionEffect);
-          setEventSocialEffect(appliedEffects.socialEffect);
-          setEventLifeEvents(appliedEffects.lifeEvents);
-          
-          // Show modal
-          setShowEventModal(true);
-        }
-      }
       
       setIsDrawing(false);
     }, 3000);
