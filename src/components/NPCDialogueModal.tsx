@@ -25,6 +25,35 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
   const [showingResponse, setShowingResponse] = useState(false);
   const [selectedOption, setSelectedOption] = useState<DialogueOption | null>(null);
   
+  // Funzione per verificare se il cambio di karma è consentito
+  const isKarmaChangeAllowed = (karmaEffect?: number): boolean => {
+    // Se non c'è effetto karma o non c'è profilo, l'opzione è permessa
+    if (!karmaEffect || !profile) return true;
+    
+    // Se il karma è già al minimo (0) e l'opzione lo ridurrebbe ancora
+    if (profile.karma <= 0 && karmaEffect < 0) {
+      return false;
+    }
+    
+    // Se il karma è già al massimo (10) e l'opzione lo aumenterebbe ancora
+    if (profile.karma >= 10 && karmaEffect > 0) {
+      return false;
+    }
+    
+    return true;
+  };
+  
+  // Funzione helper per determinare se un'opzione è disabilitata a causa dei limiti di karma
+  const isOptionUnavailableDueToKarmaLimit = (option: DialogueOption): boolean => {
+    if (!option.karmaEffect || !profile) return false;
+    
+    // L'opzione è disabilitata per limiti di karma se:
+    // - Il karma è al minimo e l'opzione lo ridurrebbe
+    // - Il karma è al massimo e l'opzione lo aumenterebbe
+    return (profile.karma <= 0 && option.karmaEffect < 0) || 
+           (profile.karma >= 10 && option.karmaEffect > 0);
+  };
+  
   // Quando la modale si apre, carica lo stato del dialogo dal localStorage se esiste
   useEffect(() => {
     if (open) {
@@ -62,7 +91,10 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
   
   // Verifica se un'opzione è disponibile in base allo stato sociale
   const isOptionAvailable = (option: DialogueOption): boolean => {
-    if (!option.requirements) return true;
+    if (!option.requirements) {
+      // Verifica karma minimo e massimo anche per opzioni senza altri requisiti
+      return isKarmaChangeAllowed(option.karmaEffect);
+    }
     
     // Verifica requisiti dello stato sociale
     if (option.requirements.socialStatus && profile) {
@@ -111,7 +143,8 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
       }
     }
     
-    return true;
+    // Infine, verifica se il cambio di karma è consentito
+    return isKarmaChangeAllowed(option.karmaEffect);
   };
   
   const handleOptionSelect = (option: DialogueOption) => {
@@ -210,6 +243,7 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
             <div className="space-y-2">
               {currentDialogue.options.map((option, index) => {
                 const available = isOptionAvailable(option);
+                const karmaAtLimit = !available && isOptionUnavailableDueToKarmaLimit(option);
                 
                 return (
                   <Button
@@ -221,15 +255,28 @@ const NPCDialogueModal: React.FC<NPCDialogueModalProps> = ({ npc, open, onClose 
                   >
                     <div className="flex flex-col items-start">
                       <span>{option.text}</span>
-                      {!available && option.requirements && (
+                      
+                      {/* Mostra i messaggi di indisponibilità */}
+                      {!available && (
                         <span className="text-xs text-red-500 mt-1">
-                          {option.requirements.socialStatus && 'Richiede status sociale specifico. '}
-                          {option.requirements.minKarma && `Richiede karma min. ${option.requirements.minKarma}. `}
-                          {option.requirements.minBalance && `Richiede min. ${option.requirements.minBalance.toFixed(2)}€. `}
-                          {option.requirements.noAddictions && 'Non disponibile con dipendenze. '}
-                          {option.requirements.maxDebt && `Richiede un debito max. ${option.requirements.maxDebt}. `}
+                          {karmaAtLimit ? (
+                            profile && profile.karma <= 0 ? 
+                              "Non puoi scegliere questa opzione: karma al minimo." : 
+                              "Non puoi scegliere questa opzione: karma al massimo."
+                          ) : (
+                            /* Mostra gli altri requisiti come prima */
+                            <>
+                              {option.requirements?.socialStatus && 'Richiede status sociale specifico. '}
+                              {option.requirements?.minKarma && `Richiede karma min. ${option.requirements.minKarma}. `}
+                              {option.requirements?.minBalance && `Richiede min. ${option.requirements.minBalance.toFixed(2)}€. `}
+                              {option.requirements?.noAddictions && 'Non disponibile con dipendenze. '}
+                              {option.requirements?.maxDebt && `Richiede un debito max. ${option.requirements.maxDebt}. `}
+                            </>
+                          )}
                         </span>
                       )}
+                      
+                      {/* Mostra gli effetti se l'opzione è disponibile */}
                       {option.karmaEffect && available && (
                         <span className={`text-xs mt-1 ${option.karmaEffect > 0 ? 'text-green-500' : 'text-red-500'}`}>
                           Karma: {option.karmaEffect > 0 ? '+' : ''}{option.karmaEffect}
