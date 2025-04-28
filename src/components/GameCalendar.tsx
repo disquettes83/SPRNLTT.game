@@ -1,3 +1,4 @@
+// Modifica al componente GameCalendar.tsx per rimuovere l'anno
 import React from 'react';
 import { useTime } from '@/contexts/TimeContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,7 +24,8 @@ const GameCalendar: React.FC = () => {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex justify-center font-bold text-xl">
-          {format(currentDate, "EEEE d MMMM yyyy", { locale: it })}
+          {/* Modifica qui: rimuovere l'anno dalla formattazione della data */}
+          {format(currentDate, "EEEE d MMMM", { locale: it })}
         </div>
         
         <div className="space-y-2 border-t pt-2">
@@ -36,6 +38,7 @@ const GameCalendar: React.FC = () => {
               {isDrawDay ? "Oggi" : `Tra ${daysUntilNextDraw} ${daysUntilNextDraw === 1 ? 'giorno' : 'giorni'}`}
             </Badge>
           </div>
+{/*
           <div className="flex items-center justify-between text-sm">
             <span className="flex items-center gap-1">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -45,6 +48,7 @@ const GameCalendar: React.FC = () => {
               {daysUntilSalary === 0 ? "Oggi" : `Tra ${daysUntilSalary} ${daysUntilSalary === 1 ? 'giorno' : 'giorni'}`}
             </Badge>
           </div>
+*/}
         </div>
         
         <div className="grid grid-cols-2 gap-2">

@@ -345,18 +345,23 @@ const simulateNationalDraw = (): { drawn: number[], results: NationalResults } =
   const checkWeeklySimulation = (newDate: Date) => {
     if (!profile) return;
     
-    // Calculate current week
+    // Calculate current week number more accuratamente
     const startOfYear = new Date(newDate.getFullYear(), 0, 1);
     const daysSinceStartOfYear = Math.floor((newDate.getTime() - startOfYear.getTime()) / (24 * 60 * 60 * 1000));
     const currentWeek = Math.floor(daysSinceStartOfYear / 7);
     
     // Check if a week has passed
     if (currentWeek !== lastWeekChecked) {
+      console.log(`Simulazione settimanale: passaggio dalla settimana ${lastWeekChecked} alla ${currentWeek}`);
+      
       // Use the Player Context's method for weekly simulation
       const weekImpact = simulateWeek();
       
       // Notify the player about significant events
       if (weekImpact.events.length > 0) {
+        // Logga tutti gli eventi per debug
+        console.log("Eventi settimanali:", weekImpact.events);
+        
         const eventString = weekImpact.events.length > 1 
           ? `${weekImpact.events[0]} e altri eventi...` 
           : weekImpact.events[0];
@@ -364,8 +369,10 @@ const simulateNationalDraw = (): { drawn: number[], results: NationalResults } =
         toast.info(`Questa settimana: ${eventString}`);
       }
       
-      // Update finances notification
+      // Update finances notification with detailed breakdown
       const netChange = weekImpact.balanceChange;
+      console.log(`Impatto finanziario settimanale: ${netChange.toFixed(2)}€`);
+      
       if (netChange !== 0) {
         if (netChange > 0) {
           toast.success(`Bilancio settimanale: +${netChange.toFixed(2)}€`);

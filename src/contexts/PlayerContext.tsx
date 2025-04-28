@@ -136,6 +136,10 @@ export const PlayerProvider: React.FC<{children: React.ReactNode}> = ({ children
     // Simula l'impatto settimanale
     const weekImpact = simulateWeeklyImpact(profile);
     
+    // Log dettagliato dell'impatto finanziario
+    console.log(`Simulazione settimanale: Entrate: ${profile.weeklyIncome}, Spese fisse: ${profile.fixedExpenses}, Variabili: ${profile.variableExpenses}`);
+    console.log(`Bilancio prima: ${profile.balance}, Cambio: ${weekImpact.balanceChange}, Dopo: ${profile.balance + weekImpact.balanceChange}`);
+    
     // Aggiorna il bilancio
     const updatedProfile = updateBalance(profile, weekImpact.balanceChange);
     

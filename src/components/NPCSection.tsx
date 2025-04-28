@@ -77,7 +77,7 @@ const NPCSection: React.FC = () => {
             {npc.name.split(' ').map(n => n[0]).join('')}
           </AvatarFallback>
           
-          {/* Badge per lo stato sociale */}
+          {/* Badge per lo stato sociale 
           {npc.socialStatus && (
             <div className="absolute bottom-1 right-1">
               <Badge variant="secondary" className="text-xs px-1">
@@ -88,13 +88,14 @@ const NPCSection: React.FC = () => {
               </Badge>
             </div>
           )}
+            */}
         </Avatar>
         
         <div className="text-center mb-3">
           <h3 className="font-bold text-base">{npc.name}</h3>
           {/* <p className="text-xs text-muted-foreground">{npc.title}</p> */}
           
-          {/* Compatibilità sociale */}
+          {/* Compatibilità sociale 
           {compatibility && (
             <div className="mt-1 flex justify-center">
               <Badge variant={compatibility.variant} className="text-xs flex items-center gap-1">
@@ -103,6 +104,7 @@ const NPCSection: React.FC = () => {
               </Badge>
             </div>
           )}
+          */}
         </div>
         
         {talkedToNPCToday ? (

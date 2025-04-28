@@ -875,13 +875,25 @@ export function simulateWeeklyImpact(profile: PlayerProfile): {
   karmaChange: number;
 } {
   const events: string[] = [];
-  let balanceChange = profile.weeklyIncome - profile.fixedExpenses;
+  // Inizializza balanceChange con l'entrata settimanale meno le spese fisse
+  let balanceChange = profile.weeklyIncome;
   let karmaChange = 0;
   
-  // Impatto delle spese variabili (possono fluttuare)
+  // Aggiungi eventuale reddito nascosto alle entrate
+  if (profile.hiddenIncome && profile.hiddenIncome > 0) {
+    balanceChange += profile.hiddenIncome;
+    events.push(`Entrate non dichiarate: +${profile.hiddenIncome.toFixed(2)}€`);
+  }
+  
+  // Sottrai le spese fisse (sempre costanti)
+  balanceChange -= profile.fixedExpenses;
+  events.push(`Spese fisse: -${profile.fixedExpenses.toFixed(2)}€`);
+  
+  // Calcola e sottrai le spese variabili (possono fluttuare)
   const variationPercent = 0.8 + Math.random() * 0.4; // 80%-120% delle spese variabili normali
   const currentVariableExpenses = Math.round(profile.variableExpenses * variationPercent);
   balanceChange -= currentVariableExpenses;
+  events.push(`Spese variabili: -${currentVariableExpenses.toFixed(2)}€`);
   
   // Entrate extra casuali
   const bonusRoll = Math.random();
