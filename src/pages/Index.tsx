@@ -600,17 +600,17 @@ const Index = () => {
   
   {/* Social media links */}
   <div className="flex justify-center items-center space-x-4 mt-2">
-    <a href="https://open.spotify.com/artist/YourSpotifyID" target="_blank" rel="noopener noreferrer" 
+    <a href="https://open.spotify.com/artist/0l0cLSyeAbCRXY4sxkH9kl?si=lv9BhnAVTE6QI85FwiJQHQ" target="_blank" rel="noopener noreferrer" 
        className="text-muted-foreground hover:text-primary transition-colors">
       <i className="fab fa-spotify text-lg"></i>
     </a>
     
-    <a href="https://music.apple.com/artist/YourAppleMusicID" target="_blank" rel="noopener noreferrer"
+    <a href="https://music.apple.com/us/artist/disquette-s/1380749859" target="_blank" rel="noopener noreferrer"
        className="text-muted-foreground hover:text-primary transition-colors">
       <i className="fab fa-apple text-lg"></i>
     </a>
     
-    <a href="https://ko-fi.com/YourKofiUsername" target="_blank" rel="noopener noreferrer"
+    <a href="https://ko-fi.com/disquettes" target="_blank" rel="noopener noreferrer"
        className="text-muted-foreground hover:text-primary transition-colors">
       <i className="fas fa-coffee text-lg"></i>
     </a>
