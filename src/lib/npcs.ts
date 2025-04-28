@@ -715,10 +715,25 @@ const NPCs: NPC[] = [
 
 // Funzione per ottenere un NPC
 export function getNPCForDate(date: Date): NPC | null {
-  // Usa il giorno del mese come indice per selezionare un NPC
-  // In questo modo ogni giorno avrà un NPC diverso in modo deterministico
-  const dayOfMonth = getDate(date);
-  const npcIndex = dayOfMonth % NPCs.length;
+  // Creiamo un seed basato sulla data attuale (anno, mese, giorno)
+  // In questo modo lo stesso NPC sarà selezionato per l'intera giornata
+  const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+  
+  // Funzione semplice per trasformare una stringa in un numero (pseudo-casuale ma deterministico)
+  const getNumericHash = (str: string): number => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Converti in un intero a 32 bit
+    }
+    // Assicuriamoci che sia positivo
+    return Math.abs(hash);
+  };
+  
+  // Genera un indice basato sulla data (sarà lo stesso per tutta la giornata)
+  const numericSeed = getNumericHash(dateString);
+  const npcIndex = numericSeed % NPCs.length;
   
   return NPCs[npcIndex];
 }
