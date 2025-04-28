@@ -514,16 +514,7 @@ const Index = () => {
               <NPCSection />
             </div>
             
-            <div className="mt-4 flex justify-center">
-              <Button 
-                variant="outline" 
-                className="flex items-center gap-2"
-                onClick={handleStartNewGame}
-              >
-                <RotateCcw className="h-4 w-4" />
-                Nuova Partita
-              </Button>
-            </div>
+            
           </div>
           
           <div className="space-y-6">

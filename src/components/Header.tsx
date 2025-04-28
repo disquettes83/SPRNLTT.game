@@ -28,7 +28,7 @@ const Header = () => {
           <Button 
             variant="outline" 
             size="sm" 
-            className="text-white border-white hover:bg-white/20 hover:text-white pixel-border border-white"
+            className="text-black border-white hover:bg-white/20 hover:text-white pixel-border border-white"
             onClick={handleNewGame}
           >
             <RotateCcw className="h-4 w-4 mr-1" />

@@ -25,17 +25,37 @@ const StatsPanel: React.FC<StatsPanelProps> = ({
   const calculateWeeklyIncomePercentage = () => {
     if (!profile || !profile.weeklyIncome || profile.weeklyIncome === 0) return 0;
     
-    // Media settimanale spesa in lotteria (assumendo che moneySpent sia il totale)
-    // Dividendo per il numero di settimane che è attivo il profilo (assumiamo 10 per semplicità, potrebbe essere un calcolo più preciso)
-    const weeks = gamesPlayed > 0 ? Math.max(1, Math.floor(gamesPlayed / 2)) : 1;
+    // Calcolo più accurato della spesa media settimanale in gioco
+    
+    // 1. Determina il numero di settimane di gioco in modo più accurato
+    // Se non abbiamo informazioni sulla durata del gioco, assumiamo almeno 1 settimana
+    let weeks = 1;
+    
+    if (gamesPlayed > 0) {
+      // Approssimiamo il numero di settimane in base al numero di partite giocate
+      // Assumendo che in media una persona giochi 2 volte a settimana
+      weeks = Math.max(1, Math.ceil(gamesPlayed / 2));
+    }
+    
+    // 2. Calcola la spesa media settimanale
     const weeklySpent = moneySpent / weeks;
     
-    return (weeklySpent / profile.weeklyIncome) * 100;
+    // 3. Calcola la percentuale rispetto al reddito settimanale totale
+    // Includiamo anche il reddito nascosto per un calcolo più accurato
+    const totalWeeklyIncome = profile.weeklyIncome + (profile.hiddenIncome || 0);
+    
+    // 4. Calcola e restituisci la percentuale
+    return (weeklySpent / totalWeeklyIncome) * 100;
   };
   
   // Determina il colore e il testo per la percentuale di spesa
   const getSpendingPercentageInfo = () => {
     const percentage = calculateWeeklyIncomePercentage();
+    
+    // Log per debug
+    console.log(`Spesa settimanale: ${(moneySpent / Math.max(1, Math.ceil(gamesPlayed / 2))).toFixed(2)}€`);
+    console.log(`Reddito settimanale: ${profile?.weeklyIncome.toFixed(2)}€ + ${profile?.hiddenIncome?.toFixed(2) || '0'}€ nascosti`);
+    console.log(`Percentuale calcolata: ${percentage.toFixed(2)}%`);
     
     if (percentage >= 30) {
       return {
@@ -120,14 +140,15 @@ const StatsPanel: React.FC<StatsPanelProps> = ({
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div>
-                  <Progress value={returnRate} className="h-2" />
-                  <div className="flex justify-between mt-1 text-xs text-muted-foreground">
-                    <span>0%</span>
-                    <span>50%</span>
-                    <span>100%</span>
-                  </div>
-                </div>
+              <div className="mb-2">
+  <Progress value={calculateWeeklyIncomePercentage()} max={50} className="h-2" />
+  <div className="flex justify-between mt-1 text-xs text-muted-foreground">
+    <span>0%</span>
+    <span>15%</span>
+    <span>30%</span>
+    <span>50%</span>
+  </div>
+</div>
                 
                 <div className="text-center">
                   <p className="text-3xl font-bold">{returnRate.toFixed(1)}%</p>
