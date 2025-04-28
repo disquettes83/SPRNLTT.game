@@ -99,6 +99,48 @@ const winnerDescriptions = [
     "Nonno affetto da smorfite acuta"
 ];
 
+const getRandomQuote = (winners: number, city: string) => {
+  if (winners === 1) {
+    const singleWinnerQuotes = [
+      `"Non ci posso credere, cambierà la mia vita" - dichiara il vincitore di ${city}`,
+      `"Ho controllato il biglietto venti volte" - racconta incredulo il vincitore di ${city}`,
+      `"Dedico questa vincita a mia nonna che mi suggerì i numeri" - confessa il fortunato di ${city}`,
+      `"Non lo dirò a nessuno, nemmeno a mia moglie" - scherza (forse) il milionario di ${city}`,
+      `"I primi soldi li investirò in un bunker antiatomico" - rivela il visionario vincitore di ${city}`,
+      `"Finalmente potrò comprare tutte le statuine dei Puffi che ho sempre desiderato" - confida il vincitore di ${city}`,
+      `"Ho già prenotato un'isola deserta con WiFi" - annuncia il neo-miliardario di ${city}`,
+      `"Continuerò a lavorare come se nulla fosse successo" - mente spudoratamente il vincitore di ${city}`,
+      `"La prima cosa che farò? Una statua di me stesso a grandezza naturale" - progetta il vincitore di ${city}`,
+      `"Ora potrò finalmente realizzare il mio sogno: aprire un ristorante per gatti" - svela l'eccentrico vincitore di ${city}`,
+      `"Non cambierò nulla della mia vita, tranne la mia vita" - filosofeggia il fortunato di ${city}`,
+      `"Userò i soldi per clonare il mio criceto defunto" - confessa il vincitore di ${city}`,
+      `"Me faccio 'na villa co' 'o campo 'e pallone" - urla festante il vincitore di ${city}`,
+  `"Agg' fatt 'a croce 'ncopp' 'o biglietto: è 'nu miracolo!" - esclama emozionato il vincitore di ${city}`,
+  `"Adesso me compro 'o bar 'ncopp' 'a spiaggia" - programma il vincitore di ${city}`,
+  `"Da domani, chi m'ha visto m'ha visto" - ride il nuovo riccone di ${city}`,
+  `"Adesso potrò finalmente dire di no a tutti" - annuncia soddisfatto il vincitore di ${city}`,
+  `"Investirò tutto in una collezione di piante carnivore" - dichiara il visionario di ${city}`,
+  `"La mia prima spesa? Un abbonamento a vita alla pizza" - scherza il fortunato di ${city}`,
+  `"Chi dice che i soldi non danno la felicità... nun s'è mai vinto 'nu cazz" - filosofeggia il vincitore di ${city}`
+    ];
+    return singleWinnerQuotes[Math.floor(Math.random() * singleWinnerQuotes.length)];
+  } else if (winners <= 3) {
+    const fewWinnersQuotes = [
+      `Festa grande in ${winners} città italiane dopo l'estrazione di ieri`,
+      `I ${winners} vincitori hanno già programmato di lasciare il lavoro`,
+      `${winners} persone si svegliano milionarie questa mattina in Italia`
+    ];
+    return fewWinnersQuotes[Math.floor(Math.random() * fewWinnersQuotes.length)];
+  } else {
+    const manyWinnersQuotes = [
+      `Record di vincite: ${winners} jackpot assegnati nella stessa serata`,
+      `Il montepremi si divide tra ${winners} fortunati in tutta Italia`,
+      `"Una probabilità su un milione" - gli statistici commentano le ${winners} vincite simultanee`
+    ];
+    return manyWinnersQuotes[Math.floor(Math.random() * manyWinnersQuotes.length)];
+  }
+};
+
 // Conseguenze per il bottone "Congratulazioni"
 const congratulationsConsequences = [
   {
@@ -354,9 +396,7 @@ const JackpotWinModal: React.FC<JackpotWinModalProps> = ({
               </h3>
               
               <p className="text-sm text-center italic">
-                {winners === 1 ? 
-                  `"Non ci posso credere, cambierà la mia vita" - dichiara il vincitore di ${winnerCity}` : 
-                  `Festa grande in ${winners} città italiane dopo l'estrazione di ieri`}
+                {getRandomQuote(winners, winnerCity)}
               </p>
             </div>
             
