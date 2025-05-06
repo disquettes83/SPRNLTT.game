@@ -614,6 +614,11 @@ const Index = () => {
        className="text-muted-foreground hover:text-primary transition-colors">
       <i className="fas fa-coffee text-lg"></i>
     </a>
+
+    <a href="https://disquettes.netlify.app/" target="_blank" rel="noopener noreferrer"
+       className="text-muted-foreground hover:text-primary transition-colors">
+      <i className="fas fa-sharp fa-floppy-disk text-lg"></i>
+    </a>
   </div>
 </footer>
       

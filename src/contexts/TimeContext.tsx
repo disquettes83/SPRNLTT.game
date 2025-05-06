@@ -42,7 +42,7 @@ interface TimeContextType {
 const TimeContext = createContext<TimeContextType | undefined>(undefined);
 
 export const TimeProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  // Start with January 1, 1990 as the default date
+
 	const [currentDate, setCurrentDate] = useState<Date>(() => {
   	const storedDate = localStorage.getItem('gameCurrentDate');
   // Se non c'è una data salvata, inizia dal 1 gennaio 2025

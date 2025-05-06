@@ -386,7 +386,7 @@ const NPCs: NPC[] = [
     id: 'avvocato-divorzista',
     name: 'Avv. Separati',
     title: 'Avvocato divorzista entusiasta',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*distribuisce biglietti da visita* Gioca al lotto? Perfetto! *sorride* Io sono specializzato in divorzi causati dal gioco d'azzardo. Il 68% dei miei clienti ha perso famiglia e casa per colpa di una schedina!",
       options: [
@@ -417,7 +417,7 @@ const NPCs: NPC[] = [
     id: 'gemelli-identici',
     name: 'Gemelli Speculari',
     title: 'Scommettitori sincroni',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*parlano all'unisono* Noi giochiamo sempre gli stessi numeri ma al contrario l'uno dall'altro. *il primo gemello* Io gioco 13, 27, 38... *il secondo gemello* E io 31, 72, 83...",
       options: [
@@ -444,7 +444,7 @@ const NPCs: NPC[] = [
     id: 'commercialista-disperato',
     name: 'Dott. Evasori',
     title: 'Commercialista al limite',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*compila freneticamente una schedina mentre controlla il telefono* Devo vincere oggi. DEVO. *guarda l'orologio* Ho ventisette minuti prima che la Guardia di Finanza trovi le cartelle che ho perso.",
       options: [
@@ -475,7 +475,7 @@ const NPCs: NPC[] = [
     id: 'nonna-intuitiva',
     name: 'Nonna Fortuna',
     title: 'Anziana dalle premonizioni',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*ti osserva attentamente* Tu hai bisogno di giocare 17, 22 e 44. Li vedo chiaramente sopra la tua testa. *annusa l'aria* E un po' di 8, ma solo il martedì.",
       options: [
@@ -503,7 +503,7 @@ const NPCs: NPC[] = [
     id: 'imprenditore-fallito',
     name: 'Ex CEO',
     title: 'Startup master rovinato',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*indossa un completo costoso ma visibilmente consumato* Sto per lanciare una ICO basata sulla blockchain del lotto. *si sistema la cravatta macchiata* Cerco investitori visionari.",
       options: [
@@ -534,7 +534,7 @@ const NPCs: NPC[] = [
     id: 'sensitiva-metropolitana',
     name: 'Madame Astral',
     title: 'Medium del pendolare',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*ti fissa attraverso occhiali enormi* Le stelle mi hanno svegliata alle 3:47 stanotte per dirti che devi giocare i numeri della tua anima. *drammatica* Il tuo spirito guida è inquieto!",
       options: [
@@ -562,7 +562,7 @@ const NPCs: NPC[] = [
     id: 'pensionato-sistema',
     name: 'Ingegner Sistemi',
     title: 'Studioso di combinazioni',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*circondato da pile di taccuini pieni di numeri* Ho sviluppato un sistema infallibile basato su 47 anni di estrazioni. *ti mostra un taccuino* Guarda questi pattern! Non possono essere casuali!",
       options: [
@@ -593,7 +593,7 @@ const NPCs: NPC[] = [
     id: 'studente-algoritmo',
     name: 'Hacker Kevin',
     title: 'Programmatore del caos',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*non stacca gli occhi dal laptop* Ho quasi finito di hackerare l'algoritmo del lotto. *digita freneticamente* Con questo script Python posso prevedere il 43% delle estrazioni con una deviazione standard del 7%.",
       options: [
@@ -624,7 +624,7 @@ const NPCs: NPC[] = [
     id: 'contadino-veggente',
     name: 'Zio Germano',
     title: 'Agricoltore sensitivo',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*osserva delle zucchine* Le mie verdure parlano, sa? *accarezza una zucchina* Questa mi ha detto che oggi escono il 13 e il 42. Non mente mai. *annusa un pomodoro* Questo invece non dice niente di utile.",
       options: [
@@ -655,7 +655,7 @@ const NPCs: NPC[] = [
     id: 'manager-esaurito',
     name: 'Dott. Carriera',
     title: 'Executive in burnout',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*vestito elegante ma con cravatta allentata* Devo vincere per potermi licenziare. *consulta nervosamente lo smartphone* Ho una call tra 4 minuti, un meeting tra 17 e devo licenziare 6 persone prima di pranzo.",
       options: [
@@ -687,7 +687,7 @@ const NPCs: NPC[] = [
     id: 'turista-fanatico',
     name: 'Mr. Schmidt',
     title: 'Turista ossessionato',
-    avatar: '/placeholder.svg',
+    avatar: '/images/placeholder.png',
     dialogue: {
       text: "*con forte accento tedesco* In Germania non giochiamo così! *consulta una guida* Ma secondo mio libro, il lotto italiano è esperienza culturale autentica, come pizza e mandolino!",
       options: [
