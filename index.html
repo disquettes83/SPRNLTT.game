@@ -1,22 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPRNLTT</title>
-    <meta name="description" content="Simulazione del gioco del SPRNLTT" />
+    <title>SPRNLTT - Simulazione del gioco del Supernalotto</title>
+    <meta name="description" content="Simulazione del gioco del Supernalotto. Prova la tua fortuna, verifica combinazioni e calcola probabilità di vincita in modo interattivo." />
+    <meta name="keywords" content="supernalotto, simulazione, gioco, lotteria, probabilità, vincita, numeri fortunati" />
     <meta name="author" content="disquette•s" />
-
-    <meta property="og:title" content="Simulazione del gioco del SPRNLTT" />
-    <meta property="og:description" content="Simulazione del gioco del SPRNLTT" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="SPRNLTT - Simulazione del gioco del Supernalotto" />
+    <meta property="og:description" content="Simulazione del gioco del Supernalotto. Prova la tua fortuna, verifica combinazioni e calcola probabilità di vincita in modo interattivo." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="https://sprnltt.netlify.app/immagine-condivisione.png" />
+    <meta property="og:url" content="https://sprnltt.netlify.app" />
+    <meta property="og:site_name" content="SPRNLTT" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SPRNLTT - Simulazione Supernalotto" />
+    <meta name="twitter:description" content="Simulazione del gioco del Supernalotto. Prova la tua fortuna e calcola le probabilità di vincita." />
+    <meta name="twitter:image" content="https://sprnltt.netlify.app/immagine-condivisione.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sprnltt.netlify.app" />
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Schema.org markup per Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SPRNLTT - Simulazione Supernalotto",
+      "description": "Simulazione del gioco del Supernalotto",
+      "url": "https://sprnltt.netlify.app",
+      "applicationCategory": "GameApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
   </head>
-
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! 
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT!
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script> -->
     <script type="module" src="/src/main.tsx"></script>
     <script data-goatcounter="https://sprnltt.goatcounter.com/count"
