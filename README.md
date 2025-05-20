@@ -42,10 +42,12 @@ npm run dev   # Avvia il tuo percorso verso la rovina finanziaria
 
 Un computer e scelte di vita discutibili.
 
+Online [QUI](https://sprnltt.netlify.app)
+
 ## Contribuisci
 
 Se vuoi contribuire a questo progetto, dovresti probabilmente riconsiderare le tue priorità. Ma se proprio insisti, le pull request sono benvenute.
 
 ## Licenza
 
-MIT - Perché nemmeno io voglio prendermi la responsabilità di questo gioco.
+CC BY-NC-SA
