@@ -36,7 +36,7 @@ const NPCs: NPC[] = [
     id: 'cassiera-stanca',
     name: 'Cassiera stanca',
     title: 'Cassiera stanca',
-    avatar: '/images/cassiera-stanca-2.png',
+    avatar: '/images/cassiera-stanca.png',
     dialogue: {
       text: "Sì, buongiorno... Vuole giocare i soliti numeri o ha deciso di buttare i suoi soldi in modo diverso oggi?",
       options: [
@@ -386,7 +386,7 @@ const NPCs: NPC[] = [
     id: 'avvocato-divorzista',
     name: 'Avv. Separati',
     title: 'Avvocato divorzista entusiasta',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/avvocato.png',
     dialogue: {
       text: "Gioca al lotto? Perfetto! Io sono specializzato in divorzi causati dal gioco d'azzardo. Il 68% dei miei clienti ha perso famiglia e casa per colpa di una schedina!",
       options: [
@@ -417,7 +417,7 @@ const NPCs: NPC[] = [
     id: 'gemelli-identici',
     name: 'Gemelli Speculari',
     title: 'Scommettitori sincroni',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/gemelli.png',
     dialogue: {
       text: "Noi giochiamo sempre gli stessi numeri ma al contrario l'uno dall'altro. *il primo gemello* Io gioco 13, 27, 38... *il secondo gemello* E io 31, 72, 83...",
       options: [
@@ -444,7 +444,7 @@ const NPCs: NPC[] = [
     id: 'commercialista-disperato',
     name: 'Dott. Evasori',
     title: 'Commercialista al limite',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/commercialista.png',
     dialogue: {
       text: "Devo vincere oggi. DEVO. Ho ventisette minuti prima che la Guardia di Finanza trovi le cartelle che ho perso.",
       options: [
@@ -475,7 +475,7 @@ const NPCs: NPC[] = [
     id: 'nonna-intuitiva',
     name: 'Nonna Fortuna',
     title: 'Anziana dalle premonizioni',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/nonna.png',
     dialogue: {
       text: "Tu hai bisogno di giocare 17, 22 e 44. Li vedo chiaramente sopra la tua testa. E un po' di 8, ma solo il martedì.",
       options: [
@@ -503,7 +503,7 @@ const NPCs: NPC[] = [
     id: 'imprenditore-fallito',
     name: 'Ex CEO',
     title: 'Startup master rovinato',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/ceo.png',
     dialogue: {
       text: "Sto per lanciare una ICO basata sulla blockchain del lotto. Cerco investitori visionari.",
       options: [
@@ -534,7 +534,7 @@ const NPCs: NPC[] = [
     id: 'sensitiva-metropolitana',
     name: 'Madame Astral',
     title: 'Medium del pendolare',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/medium.png',
     dialogue: {
       text: "Le stelle mi hanno svegliata alle 3:47 stanotte per dirti che devi giocare i numeri della tua anima. Il tuo spirito guida è inquieto!",
       options: [
@@ -562,7 +562,7 @@ const NPCs: NPC[] = [
     id: 'pensionato-sistema',
     name: 'Ingegner Sistemi',
     title: 'Studioso di combinazioni',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/ingegnere.png',
     dialogue: {
       text: "Ho sviluppato un sistema infallibile basato su 47 anni di estrazioni. Guarda questi pattern! Non possono essere casuali!",
       options: [
@@ -593,7 +593,7 @@ const NPCs: NPC[] = [
     id: 'studente-algoritmo',
     name: 'Hacker Kevin',
     title: 'Programmatore del caos',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/hacker.png',
     dialogue: {
       text: "Ho quasi finito di hackerare l'algoritmo del lotto. Con questo script Python posso prevedere il 43% delle estrazioni con una deviazione standard del 7%.",
       options: [
@@ -624,7 +624,7 @@ const NPCs: NPC[] = [
     id: 'contadino-veggente',
     name: 'Zio Germano',
     title: 'Agricoltore sensitivo',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/contadino.png',
     dialogue: {
       text: "Le mie verdure parlano, sa? *accarezza una zucchina* Questa mi ha detto che oggi escono il 13 e il 42. Non mente mai. *annusa un pomodoro* Questo invece non dice niente di utile.",
       options: [
@@ -655,7 +655,7 @@ const NPCs: NPC[] = [
     id: 'manager-esaurito',
     name: 'Dott. Carriera',
     title: 'Executive in burnout',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/manager.png',
     dialogue: {
       text: "Devo vincere per potermi licenziare. Ho una call tra 4 minuti, un meeting tra 17 e devo licenziare 6 persone prima di pranzo.",
       options: [
@@ -687,7 +687,7 @@ const NPCs: NPC[] = [
     id: 'turista-fanatico',
     name: 'Mr. Schmidt',
     title: 'Turista ossessionato',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/tourist.png',
     dialogue: {
       text: "In Germania non giochiamo così! Ma secondo mio libro, il lotto italiano è esperienza culturale autentica, come pizza e mandolino!",
       options: [
@@ -715,7 +715,7 @@ const NPCs: NPC[] = [
     id: 'pescatore-lunare',
     name: 'Don Ciro',
     title: 'Pescatore lunare',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/pescatore.png',
     dialogue: {
       text: "Uagliò, 'a luna m'ha parlato stanotte. M'ha ritt ca 'o 17 è 'nu nummero 'e sfurtuna. Ma 'o 17 arriverso è 71, e chillo porta ricchezza!",
       options: [
@@ -742,7 +742,7 @@ const NPCs: NPC[] = [
     id: 'banchiere-disperato',
     name: 'Dott. Conti',
     title: 'Banchiere in crisi esistenziale',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/banchiere.png',
     dialogue: {
       text: "Trent'anni a negare prestiti a gente disperata e ora sono qui, a giocare i numeri di mia nonna morta. L'ironia non le sfugge, vero?",
       options: [
@@ -774,7 +774,7 @@ const NPCs: NPC[] = [
     id: 'fantasma-ricevitoria',
     name: 'Lo Spettro',
     title: 'Fantasma della ricevitoria',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/fantasma.png',
     dialogue: {
       text: "Sono morto nel 1987 proprio mentre stavano estraendo i miei numeri. Non ho mai saputo se ho vinto. Sono bloccato qui per l'eternità.",
       options: [
@@ -801,7 +801,7 @@ const NPCs: NPC[] = [
     id: 'medico-scommettitore',
     name: 'Dott. Diagnosi',
     title: 'Chirurgo scommettitore',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/chirurgo.png',
     dialogue: {
       text: "Scommetto sulle mie operazioni, perché non sul lotto? Ieri ho dato al fegato del paziente in coma il 45% di possibilità. Oggi punto sul 45 secco.",
       options: [
@@ -829,7 +829,7 @@ const NPCs: NPC[] = [
     id: 'barista-esistenzialista',
     name: 'Gianni',
     title: 'Barista esistenzialista',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/barista.png',
     dialogue: {
       text: "Sa cosa mi chiedo mentre servo caffè e stampo schedine? Se in qualche universo parallelo esiste un me che ha vinto al SuperEnalotto e ora vive a Bali circondato da modelle.",
       options: [
@@ -856,7 +856,7 @@ const NPCs: NPC[] = [
     id: 'suora-scommettitrice',
     name: 'Suor Fortuna',
     title: 'Religiosa del rischio',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/suora.png',
     dialogue: {
       text: "Non dica niente alla Madre Superiora. Gioco per la parrocchia, sa? Il Signore lavora in modi misteriosi, e a volte ha bisogno di un tetto nuovo per la sua casa.",
       options: [
@@ -883,7 +883,7 @@ const NPCs: NPC[] = [
     id: 'ragioniere-cospiratore',
     name: 'Rag. Complotti',
     title: 'Teorico della cospirazione',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/ragioniere.png',
     dialogue: {
       text: "Non si è mai chiesto perché il SuperEnalotto ha 90 numeri e non 89 o 91? E perché le estrazioni sono il martedì, giovedì e sabato? Seguendo la sequenza di Fibonacci al contrario, tutto porta al codice dei Templari!",
       options: [
@@ -910,7 +910,7 @@ const NPCs: NPC[] = [
     id: 'poeta-decerebrato',
     name: 'Vate',
     title: 'Poeta dei numeri',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/poeta.png',
     dialogue: {
       text: "Il sei danza col nove, mentre il tredici piange la morte della sestina. La ruota gira, gira... come i pensieri nel labirinto dell'anima!",
       options: [
@@ -937,7 +937,7 @@ const NPCs: NPC[] = [
     id: 'hikikomori-statistico',
     name: 'Otaku dei Numeri',
     title: 'Recluso probabilistico',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/otaku.png',
     dialogue: {
       text: "Non esco di casa da 4 anni, 7 mesi e 12 giorni. Ma ho sviluppato un modello statistico che predice le estrazioni con una precisione del 0.0031% superiore al caso.",
       options: [
@@ -964,7 +964,7 @@ const NPCs: NPC[] = [
     id: 'becchino-numeri',
     name: 'Signor Feretri',
     title: 'Necroforo dei numeri',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/becchino.png',
     dialogue: {
       text: "I morti... mi suggeriscono numeri. Il signor Esposito, sepolto giovedì, mi ha detto di giocare la sua età alla morte e l'anno in cui si è rotto il femore sinistro. Mai deludere un cliente.",
       options: [
@@ -992,7 +992,7 @@ const NPCs: NPC[] = [
     id: 'barbone-filosofo',
     name: 'Diogene',
     title: 'Clochard visionario',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/clochard.png',
     dialogue: {
       text: "Uè guagliò, teng' 'o numm'r ca t'fa ricch'! L'aggio sunnato mentre durmevo dint' 'a cassonett'! M'è venuto 'a Madonna cu 'na schedina 'nmano!",
       options: [
@@ -1023,7 +1023,7 @@ const NPCs: NPC[] = [
     id: 'nonna-malandrella',
     name: 'Nonna Carmela',
     title: 'Vecchietta del vicolo',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/nonna-carmela.png',
     dialogue: {
       text: "Uagliò, 'a nonnina toja sape 'e nummere buone! Settant'anne 'e scuorno e lacrime, sette mariti sotterrati, cientotrenta nepute... 'e nummere meje teneno 'o sangue 'ncuollo!",
       options: [
@@ -1050,7 +1050,7 @@ const NPCs: NPC[] = [
     id: 'sanguinario-lotto',
     name: "Zi' Salvatore",
     title: 'Ex camorrista in pensione',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/camorrista.png',
     dialogue: {
       text: "Guagliò, primm' facevo rispettà 'e nummere c''a lupara. Mo' rispetto 'e nummere d''o lotto. Sempre a numerologia, sempe trattammo.",
       options: [
@@ -1078,7 +1078,7 @@ const NPCs: NPC[] = [
     id: 'guappo-sfortunato',
     name: 'Gennarino',
     title: 'Scugnizzo dei numeri',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/gennarino.png',
     dialogue: {
       text: "Ue uagliò, io tengo 'a ciorta ca suda sangue! Vintiquatt'anne e già aggio jucato 'o stipendio 'e n'anno. Ma 'a prossima vota vence, t''o giuro 'ncopp'a capa 'e mammà!",
       options: [
@@ -1105,7 +1105,7 @@ const NPCs: NPC[] = [
     id: 'pizzaiolo-veggente',
     name: 'Mastro Ciro',
     title: 'Pizzaiolo delle premonizioni',
-    avatar: '/images/placeholder.png',
+    avatar: '/images/pizzaiolo.png',
     dialogue: {
       text: "Uagliò, 'e nummere stanno scritte 'ncoppa 'a pizza! 'A muzzarella me parla, 'o basilico me canta 'e combinazione. 'A farina è 'a neve ca te porta 'a ricchezza!",
       options: [
