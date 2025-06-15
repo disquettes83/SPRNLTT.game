@@ -98,7 +98,7 @@ const NPCs: NPC[] = [
           karmaEffect: 0
         },
         {
-          text: "Senti... ma li giochi sempre gli stessi?",
+          text: "Senti... ma li giochi sempre, gli stessi?",
           response: "Cambiare? E perché? I numeri hanno sentimenti. Se li tradisci, se ne ricordano. Il 22 non mi parla più dal 1986. Gli ho preferito il 23 per l'anniversario di matrimonio.",
           karmaEffect: 1
         },
