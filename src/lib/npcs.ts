@@ -486,7 +486,7 @@ const NPCs: NPC[] = [
         },
         {
           text: "Lei ha mai vinto?",
-          response: "Oh, certo! Nel '68 ho vinto abbastanza per comprare quella che ora è diventata la casa di riposo dove vivo. Non lo sanno, credono che sia dello Stato. Quando morirò la lascerò a mio nipote. O al gatto. Dipende da chi mi viene a trovare più spesso questo mese.",
+          response: "Oh, certo! Nel '68 ho vinto abbastanza per comprare quella che ora è diventata la casa di riposo dove vivo. Non lo sanno, credono che sia dello Stato. Quando morirò la lascerò a mio nipote. O al gatto. Dipende da chi mi viene a trovare più spesso questo mese. Tieni, gioia... comprati qualche cosa.",
           karmaEffect: 0,
           moneyEffect: 5
         },
