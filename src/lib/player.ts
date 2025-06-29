@@ -99,7 +99,7 @@ export const italianCities = [
   'Pesaro', 'Pisa', 'Caserta', 'Varese', 'Catanzaro',
   'Lucca', 'Matera', 'Pistoia', 'Viterbo', 'Asti',
   'Sondrio', 'Benevento', 'Crotone', 'Siena', 'Biella',
-  'Aosta', 'Cremona', 'Trani', 'Ragusa', 'Mantova'
+  'Aosta', 'Cremona', 'Trani', 'Ragusa', 'Mantova', 'Gallipoli'
 ];
 
 // Database regioni italiane con costo della vita
@@ -111,7 +111,7 @@ const italianRegions = {
   "Toscana": { costMultiplier: 1.15, cities: ["Firenze", "Pisa", "Livorno", "Siena", "Lucca"] },
   "Veneto": { costMultiplier: 1.1, cities: ["Venezia", "Verona", "Padova", "Vicenza", "Treviso"] },
   "Piemonte": { costMultiplier: 1.05, cities: ["Torino", "Novara", "Alessandria", "Asti", "Cuneo"] },
-  "Puglia": { costMultiplier: 0.9, cities: ["Bari", "Taranto", "Lecce", "Foggia", "Brindisi"] },
+  "Puglia": { costMultiplier: 0.9, cities: ["Bari", "Taranto", "Lecce", "Foggia", "Brindisi", "Gallipoli"] },
   "Emilia-Romagna": { costMultiplier: 1.1, cities: ["Bologna", "Modena", "Parma", "Reggio Emilia", "Ravenna"] },
   "Calabria": { costMultiplier: 0.8, cities: ["Reggio Calabria", "Catanzaro", "Cosenza", "Crotone", "Vibo Valentia"] },
   "Liguria": { costMultiplier: 1.15, cities: ["Genova", "La Spezia", "Savona", "Imperia"] },
@@ -119,7 +119,7 @@ const italianRegions = {
   "Abruzzo": { costMultiplier: 0.95, cities: ["L'Aquila", "Pescara", "Teramo", "Chieti"] },
   "Friuli-Venezia Giulia": { costMultiplier: 1.05, cities: ["Trieste", "Udine", "Pordenone", "Gorizia"] },
   "Sardegna": { costMultiplier: 0.9, cities: ["Cagliari", "Sassari", "Olbia", "Nuoro", "Oristano"] },
-  "Trentino-Alto Adige": { costMultiplier: 1.2, cities: ["Trento", "Bolzano", "Merano", "Rovereto"] },
+  "Trentino-Alto Adige": { costMultiplier: 1.2, cities: ["Trento", "Bolzano", "Merano", "Rovereto", "Catanzaro"] },
   "Umbria": { costMultiplier: 1.0, cities: ["Perugia", "Terni", "Foligno", "Spoleto"] },
   "Basilicata": { costMultiplier: 0.85, cities: ["Potenza", "Matera"] },
   "Molise": { costMultiplier: 0.85, cities: ["Campobasso", "Isernia"] },
