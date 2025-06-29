@@ -112,7 +112,7 @@ const italianRegions = {
   "Veneto": { costMultiplier: 1.1, cities: ["Venezia", "Verona", "Padova", "Vicenza", "Treviso"] },
   "Piemonte": { costMultiplier: 1.05, cities: ["Torino", "Novara", "Alessandria", "Asti", "Cuneo"] },
   "Puglia": { costMultiplier: 0.9, cities: ["Bari", "Taranto", "Lecce", "Foggia", "Brindisi", "Gallipoli"] },
-  "Emilia-Romagna": { costMultiplier: 1.1, cities: ["Bologna", "Modena", "Parma", "Reggio Emilia", "Ravenna"] },
+  "Emilia-Romagna": { costMultiplier: 1.1, cities: ["Bologna", "Modena", "Parma", "Reggio Emilia", "Ravenna", "Ferrara"] },
   "Calabria": { costMultiplier: 0.8, cities: ["Reggio Calabria", "Catanzaro", "Cosenza", "Crotone", "Vibo Valentia"] },
   "Liguria": { costMultiplier: 1.15, cities: ["Genova", "La Spezia", "Savona", "Imperia"] },
   "Marche": { costMultiplier: 1.0, cities: ["Ancona", "Pesaro", "Ascoli Piceno", "Macerata", "Urbino"] },
