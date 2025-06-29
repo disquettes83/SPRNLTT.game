@@ -102,28 +102,88 @@ export const italianCities = [
   'Aosta', 'Cremona', 'Trani', 'Ragusa', 'Mantova', 'Gallipoli'
 ];
 
-// Database regioni italiane con costo della vita
+// Database regioni italiane con costo della vita (AGGIORNATO)
 const italianRegions = {
-  "Lombardia": { costMultiplier: 1.3, cities: ["Milano", "Brescia", "Bergamo", "Monza", "Como", "Varese", "Pavia"] },
-  "Lazio": { costMultiplier: 1.2, cities: ["Roma", "Latina", "Frosinone", "Viterbo", "Rieti"] },
-  "Campania": { costMultiplier: 0.9, cities: ["Napoli", "Salerno", "Caserta", "Benevento", "Avellino"] },
-  "Sicilia": { costMultiplier: 0.85, cities: ["Palermo", "Catania", "Messina", "Siracusa", "Ragusa"] },
-  "Toscana": { costMultiplier: 1.15, cities: ["Firenze", "Pisa", "Livorno", "Siena", "Lucca"] },
-  "Veneto": { costMultiplier: 1.1, cities: ["Venezia", "Verona", "Padova", "Vicenza", "Treviso"] },
-  "Piemonte": { costMultiplier: 1.05, cities: ["Torino", "Novara", "Alessandria", "Asti", "Cuneo"] },
-  "Puglia": { costMultiplier: 0.9, cities: ["Bari", "Taranto", "Lecce", "Foggia", "Brindisi", "Gallipoli"] },
-  "Emilia-Romagna": { costMultiplier: 1.1, cities: ["Bologna", "Modena", "Parma", "Reggio Emilia", "Ravenna", "Ferrara"] },
-  "Calabria": { costMultiplier: 0.8, cities: ["Reggio Calabria", "Catanzaro", "Cosenza", "Crotone", "Vibo Valentia"] },
-  "Liguria": { costMultiplier: 1.15, cities: ["Genova", "La Spezia", "Savona", "Imperia"] },
-  "Marche": { costMultiplier: 1.0, cities: ["Ancona", "Pesaro", "Ascoli Piceno", "Macerata", "Urbino"] },
-  "Abruzzo": { costMultiplier: 0.95, cities: ["L'Aquila", "Pescara", "Teramo", "Chieti"] },
-  "Friuli-Venezia Giulia": { costMultiplier: 1.05, cities: ["Trieste", "Udine", "Pordenone", "Gorizia"] },
-  "Sardegna": { costMultiplier: 0.9, cities: ["Cagliari", "Sassari", "Olbia", "Nuoro", "Oristano"] },
-  "Trentino-Alto Adige": { costMultiplier: 1.2, cities: ["Trento", "Bolzano", "Merano", "Rovereto", "Catanzaro"] },
-  "Umbria": { costMultiplier: 1.0, cities: ["Perugia", "Terni", "Foligno", "Spoleto"] },
-  "Basilicata": { costMultiplier: 0.85, cities: ["Potenza", "Matera"] },
-  "Molise": { costMultiplier: 0.85, cities: ["Campobasso", "Isernia"] },
-  "Valle d'Aosta": { costMultiplier: 1.25, cities: ["Aosta"] }
+  "Lombardia": { 
+    costMultiplier: 1.3, 
+    cities: ["Milano", "Brescia", "Bergamo", "Monza", "Como", "Varese", "Pavia", "Mantova", "Cremona", "Sondrio"] 
+  },
+  "Lazio": { 
+    costMultiplier: 1.2, 
+    cities: ["Roma", "Latina", "Frosinone", "Viterbo", "Rieti"] 
+  },
+  "Campania": { 
+    costMultiplier: 0.9, 
+    cities: ["Napoli", "Salerno", "Caserta", "Benevento", "Avellino", "Giugliano in Campania"] 
+  },
+  "Sicilia": { 
+    costMultiplier: 0.85, 
+    cities: ["Palermo", "Catania", "Messina", "Siracusa", "Ragusa", "Marsala"] 
+  },
+  "Toscana": { 
+    costMultiplier: 1.15, 
+    cities: ["Firenze", "Pisa", "Livorno", "Siena", "Lucca", "Prato", "Arezzo", "Pistoia"] 
+  },
+  "Veneto": { 
+    costMultiplier: 1.1, 
+    cities: ["Venezia", "Verona", "Padova", "Vicenza", "Treviso"] 
+  },
+  "Piemonte": { 
+    costMultiplier: 1.05, 
+    cities: ["Torino", "Novara", "Alessandria", "Asti", "Cuneo", "Biella"] 
+  },
+  "Puglia": { 
+    costMultiplier: 0.9, 
+    cities: ["Bari", "Taranto", "Lecce", "Foggia", "Brindisi", "Gallipoli", "Andria", "Trani", "Barletta"] 
+  },
+  "Emilia-Romagna": { 
+    costMultiplier: 1.1, 
+    cities: ["Bologna", "Modena", "Parma", "Reggio Emilia", "Ravenna", "Ferrara", "Forlì", "Rimini", "Piacenza"] 
+  },
+  "Calabria": { 
+    costMultiplier: 0.8, 
+    cities: ["Reggio Calabria", "Catanzaro", "Cosenza", "Crotone", "Vibo Valentia"] 
+  },
+  "Liguria": { 
+    costMultiplier: 1.15, 
+    cities: ["Genova", "La Spezia", "Savona", "Imperia"] 
+  },
+  "Marche": { 
+    costMultiplier: 1.0, 
+    cities: ["Ancona", "Pesaro", "Ascoli Piceno", "Macerata", "Urbino"] 
+  },
+  "Abruzzo": { 
+    costMultiplier: 0.95, 
+    cities: ["L'Aquila", "Pescara", "Teramo", "Chieti"] 
+  },
+  "Friuli-Venezia Giulia": { 
+    costMultiplier: 1.05, 
+    cities: ["Trieste", "Udine", "Pordenone", "Gorizia"] 
+  },
+  "Sardegna": { 
+    costMultiplier: 0.9, 
+    cities: ["Cagliari", "Sassari", "Olbia", "Nuoro", "Oristano"] 
+  },
+  "Trentino-Alto Adige": { 
+    costMultiplier: 1.2, 
+    cities: ["Trento", "Bolzano", "Merano", "Rovereto"] 
+  },
+  "Umbria": { 
+    costMultiplier: 1.0, 
+    cities: ["Perugia", "Terni", "Foligno", "Spoleto"] 
+  },
+  "Basilicata": { 
+    costMultiplier: 0.85, 
+    cities: ["Potenza", "Matera"] 
+  },
+  "Molise": { 
+    costMultiplier: 0.85, 
+    cities: ["Campobasso", "Isernia"] 
+  },
+  "Valle d'Aosta": { 
+    costMultiplier: 1.25, 
+    cities: ["Aosta"] 
+  }
 };
 
 // Eventi di vita che possono influenzare il profilo
